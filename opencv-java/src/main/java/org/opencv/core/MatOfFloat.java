@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MatOfFloat extends Mat {
+
     // 32FC1
     private static final int _depth = CvType.CV_32F;
     private static final int _channels = 1;
@@ -12,7 +13,7 @@ public class MatOfFloat extends Mat {
         super();
     }
 
-    protected MatOfFloat(long addr) {
+    private MatOfFloat(long addr) {
         super(addr);
         if( !empty() && checkVector(_channels, _depth) < 0 )
             throw new IllegalArgumentException("Incompatible Mat");

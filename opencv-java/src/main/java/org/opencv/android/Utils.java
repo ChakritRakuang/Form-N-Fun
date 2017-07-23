@@ -115,7 +115,7 @@ public class Utils {
      * @param bmp is a valid Bitmap object of the same size as the Mat and of type 'ARGB_8888' or 'RGB_565'.
      * @param premultiplyAlpha is a flag, that determines, whether the Mat needs to be converted to alpha premultiplied format (like Android keeps 'ARGB_8888' bitmaps); the flag is ignored for 'RGB_565' bitmaps.
      */
-    public static void matToBitmap(Mat mat, Bitmap bmp, boolean premultiplyAlpha) {
+    private static void matToBitmap(Mat mat, Bitmap bmp, boolean premultiplyAlpha) {
         if (mat == null)
             throw new java.lang.IllegalArgumentException("mat == null");
         if (bmp == null)

@@ -1,17 +1,10 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.video;
-
-
 
 // C++: class BackgroundSubtractorMOG2
 //javadoc: BackgroundSubtractorMOG2
 public class BackgroundSubtractorMOG2 extends BackgroundSubtractor {
 
-    protected BackgroundSubtractorMOG2(long addr) { super(addr); }
-
+    BackgroundSubtractorMOG2(long addr) { super(addr); }
 
     //
     // C++:  double getVarMin()
@@ -20,12 +13,9 @@ public class BackgroundSubtractorMOG2 extends BackgroundSubtractor {
     //javadoc: BackgroundSubtractorMOG2::getVarMin()
     public  double getVarMin()
     {
-        
-        double retVal = getVarMin_0(nativeObj);
-        
-        return retVal;
-    }
 
+        return getVarMin_0(nativeObj);
+    }
 
     //
     // C++:  void setVarMin(double varMin)
@@ -36,10 +26,8 @@ public class BackgroundSubtractorMOG2 extends BackgroundSubtractor {
     {
         
         setVarMin_0(nativeObj, varMin);
-        
-        return;
-    }
 
+    }
 
     //
     // C++:  double getVarMax()
@@ -48,12 +36,9 @@ public class BackgroundSubtractorMOG2 extends BackgroundSubtractor {
     //javadoc: BackgroundSubtractorMOG2::getVarMax()
     public  double getVarMax()
     {
-        
-        double retVal = getVarMax_0(nativeObj);
-        
-        return retVal;
-    }
 
+        return getVarMax_0(nativeObj);
+    }
 
     //
     // C++:  void setVarMax(double varMax)
@@ -64,10 +49,8 @@ public class BackgroundSubtractorMOG2 extends BackgroundSubtractor {
     {
         
         setVarMax_0(nativeObj, varMax);
-        
-        return;
-    }
 
+    }
 
     //
     // C++:  double getComplexityReductionThreshold()
@@ -81,7 +64,6 @@ public class BackgroundSubtractorMOG2 extends BackgroundSubtractor {
         
         return retVal;
     }
-
 
     //
     // C++:  void setComplexityReductionThreshold(double ct)

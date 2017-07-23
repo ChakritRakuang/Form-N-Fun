@@ -1,10 +1,4 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.calib3d;
-
-
 
 // C++: class StereoSGBM
 //javadoc: StereoSGBM

@@ -41,7 +41,6 @@ public class Algorithm {
         return;
     }
 
-
     //
     // C++:  String getDefaultName()
     //
@@ -49,18 +48,14 @@ public class Algorithm {
     //javadoc: Algorithm::getDefaultName()
     public  String getDefaultName()
     {
-        
-        String retVal = getDefaultName_0(nativeObj);
-        
-        return retVal;
-    }
 
+        return getDefaultName_0(nativeObj);
+    }
 
     @Override
     protected void finalize() throws Throwable {
         delete(nativeObj);
     }
-
 
 
     // C++:  void clear()

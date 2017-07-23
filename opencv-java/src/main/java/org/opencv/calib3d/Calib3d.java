@@ -1,7 +1,3 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.calib3d;
 
 import java.util.ArrayList;
@@ -71,12 +67,8 @@ public class Calib3d {
     //javadoc: projectPoints(objectPoints, rvec, tvec, cameraMatrix, distCoeffs, imagePoints, jacobian, aspectRatio)
     public static void projectPoints(MatOfPoint3f objectPoints, Mat rvec, Mat tvec, Mat cameraMatrix, MatOfDouble distCoeffs, MatOfPoint2f imagePoints, Mat jacobian, double aspectRatio)
     {
-        Mat objectPoints_mat = objectPoints;
-        Mat distCoeffs_mat = distCoeffs;
-        Mat imagePoints_mat = imagePoints;
-        projectPoints_0(objectPoints_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, imagePoints_mat.nativeObj, jacobian.nativeObj, aspectRatio);
-        
-        return;
+        projectPoints_0(((Mat) objectPoints).nativeObj, rvec.nativeObj, tvec.nativeObj, cameraMatrix.nativeObj, ((Mat) distCoeffs).nativeObj, ((Mat) imagePoints).nativeObj, jacobian.nativeObj, aspectRatio);
+
     }
 
     //javadoc: projectPoints(objectPoints, rvec, tvec, cameraMatrix, distCoeffs, imagePoints)
@@ -86,10 +78,8 @@ public class Calib3d {
         Mat distCoeffs_mat = distCoeffs;
         Mat imagePoints_mat = imagePoints;
         projectPoints_1(objectPoints_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, imagePoints_mat.nativeObj);
-        
-        return;
-    }
 
+    }
 
     //
     // C++:  bool solvePnP(vector_Point3f objectPoints, vector_Point2f imagePoints, Mat cameraMatrix, vector_double distCoeffs, Mat& rvec, Mat& tvec, bool useExtrinsicGuess = false, int flags = SOLVEPNP_ITERATIVE)
@@ -144,7 +134,6 @@ public class Calib3d {
         return retVal;
     }
 
-
     //
     // C++:  bool findChessboardCorners(Mat image, Size patternSize, vector_Point2f& corners, int flags = CALIB_CB_ADAPTIVE_THRESH + CALIB_CB_NORMALIZE_IMAGE)
     //
@@ -167,7 +156,6 @@ public class Calib3d {
         return retVal;
     }
 
-
     //
     // C++:  Mat initCameraMatrix2D(vector_vector_Point3f objectPoints, vector_vector_Point2f imagePoints, Size imageSize, double aspectRatio = 1.0)
     //
@@ -179,9 +167,8 @@ public class Calib3d {
         Mat objectPoints_mat = Converters.vector_vector_Point3f_to_Mat(objectPoints, objectPoints_tmplm);
         List<Mat> imagePoints_tmplm = new ArrayList<Mat>((imagePoints != null) ? imagePoints.size() : 0);
         Mat imagePoints_mat = Converters.vector_vector_Point2f_to_Mat(imagePoints, imagePoints_tmplm);
-        Mat retVal = new Mat(initCameraMatrix2D_0(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, imageSize.width, imageSize.height, aspectRatio));
-        
-        return retVal;
+
+        return new Mat(initCameraMatrix2D_0(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, imageSize.width, imageSize.height, aspectRatio));
     }
 
     //javadoc: initCameraMatrix2D(objectPoints, imagePoints, imageSize)
@@ -204,12 +191,9 @@ public class Calib3d {
     //javadoc: drawChessboardCorners(image, patternSize, corners, patternWasFound)
     public static void drawChessboardCorners(Mat image, Size patternSize, MatOfPoint2f corners, boolean patternWasFound)
     {
-        Mat corners_mat = corners;
-        drawChessboardCorners_0(image.nativeObj, patternSize.width, patternSize.height, corners_mat.nativeObj, patternWasFound);
-        
-        return;
-    }
+        drawChessboardCorners_0(image.nativeObj, patternSize.width, patternSize.height, ((Mat) corners).nativeObj, patternWasFound);
 
+    }
 
     //
     // C++:  bool findCirclesGrid(Mat image, Size patternSize, Mat& centers, int flags = CALIB_CB_SYMMETRIC_GRID, Ptr_FeatureDetector blobDetector = SimpleBlobDetector::create())

@@ -1,7 +1,3 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.video;
 
 import org.opencv.core.Mat;
@@ -13,7 +9,6 @@ public class KalmanFilter {
     protected final long nativeObj;
     protected KalmanFilter(long addr) { nativeObj = addr; }
 
-
     //
     // C++:   KalmanFilter()
     //
@@ -23,10 +18,8 @@ public class KalmanFilter {
     {
         
         nativeObj = KalmanFilter_0();
-        
-        return;
-    }
 
+    }
 
     //
     // C++:   KalmanFilter(int dynamParams, int measureParams, int controlParams = 0, int type = CV_32F)

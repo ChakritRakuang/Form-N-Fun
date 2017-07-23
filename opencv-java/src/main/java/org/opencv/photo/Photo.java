@@ -1,10 +1,5 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.photo;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfFloat;
@@ -17,7 +12,6 @@ public class Photo {
             CV_INPAINT_NS = 0,
             CV_INPAINT_TELEA = 1;
 
-
     public static final int
             INPAINT_NS = 0,
             INPAINT_TELEA = 1,
@@ -28,7 +22,6 @@ public class Photo {
             NORMCONV_FILTER = 2,
             LDR_SIZE = 256;
 
-
     //
     // C++:  void fastNlMeansDenoising(Mat src, Mat& dst, vector_float h, int templateWindowSize = 7, int searchWindowSize = 21, int normType = NORM_L2)
     //
@@ -36,21 +29,16 @@ public class Photo {
     //javadoc: fastNlMeansDenoising(src, dst, h, templateWindowSize, searchWindowSize, normType)
     public static void fastNlMeansDenoising(Mat src, Mat dst, MatOfFloat h, int templateWindowSize, int searchWindowSize, int normType)
     {
-        Mat h_mat = h;
-        fastNlMeansDenoising_0(src.nativeObj, dst.nativeObj, h_mat.nativeObj, templateWindowSize, searchWindowSize, normType);
-        
-        return;
+        fastNlMeansDenoising_0(src.nativeObj, dst.nativeObj, h.nativeObj, templateWindowSize, searchWindowSize, normType);
+
     }
 
     //javadoc: fastNlMeansDenoising(src, dst, h)
     public static void fastNlMeansDenoising(Mat src, Mat dst, MatOfFloat h)
     {
-        Mat h_mat = h;
-        fastNlMeansDenoising_1(src.nativeObj, dst.nativeObj, h_mat.nativeObj);
-        
-        return;
-    }
+        fastNlMeansDenoising_1(src.nativeObj, dst.nativeObj, h.nativeObj);
 
+    }
 
     //
     // C++:  void fastNlMeansDenoisingColored(Mat src, Mat& dst, float h = 3, float hColor = 3, int templateWindowSize = 7, int searchWindowSize = 21)

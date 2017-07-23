@@ -1,10 +1,5 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.photo;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.opencv.core.Mat;
 import org.opencv.utils.Converters;
@@ -14,7 +9,6 @@ import org.opencv.utils.Converters;
 public class MergeMertens extends MergeExposures {
 
     protected MergeMertens(long addr) { super(addr); }
-
 
     //
     // C++:  void process(vector_Mat src, Mat& dst, Mat times, Mat response)
@@ -29,7 +23,6 @@ public class MergeMertens extends MergeExposures {
         return;
     }
 
-
     //
     // C++:  void process(vector_Mat src, Mat& dst)
     //
@@ -42,7 +35,6 @@ public class MergeMertens extends MergeExposures {
         
         return;
     }
-
 
     //
     // C++:  float getContrastWeight()

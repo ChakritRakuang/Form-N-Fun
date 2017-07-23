@@ -1,7 +1,3 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.photo;
 
 import java.util.ArrayList;
@@ -96,10 +92,8 @@ public class AlignMTB extends AlignExposures {
     //javadoc: AlignMTB::getMaxBits()
     public  int getMaxBits()
     {
-        
-        int retVal = getMaxBits_0(nativeObj);
-        
-        return retVal;
+
+        return getMaxBits_0(nativeObj);
     }
 
 

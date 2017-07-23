@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MatOfDouble extends Mat {
+
     // 64FC(x)
     private static final int _depth = CvType.CV_64F;
     private static final int _channels = 1;
@@ -12,7 +13,7 @@ public class MatOfDouble extends Mat {
         super();
     }
 
-    protected MatOfDouble(long addr) {
+    private MatOfDouble(long addr) {
         super(addr);
         if( !empty() && checkVector(_channels, _depth) < 0 )
             throw new IllegalArgumentException("Incompatible Mat");

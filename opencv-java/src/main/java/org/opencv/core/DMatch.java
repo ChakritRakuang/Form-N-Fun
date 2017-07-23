@@ -30,7 +30,7 @@ public class DMatch {
     }
 
     // javadoc: DMatch::DMatch(_queryIdx, _trainIdx, _distance)
-    public DMatch(int _queryIdx, int _trainIdx, float _distance) {
+    private DMatch(int _queryIdx, int _trainIdx, float _distance) {
         queryIdx = _queryIdx;
         trainIdx = _trainIdx;
         imgIdx = -1;

@@ -1,7 +1,3 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.video;
 
 import org.opencv.core.Algorithm;
@@ -11,8 +7,7 @@ import org.opencv.core.Mat;
 //javadoc: DenseOpticalFlow
 public class DenseOpticalFlow extends Algorithm {
 
-    protected DenseOpticalFlow(long addr) { super(addr); }
-
+    DenseOpticalFlow(long addr) { super(addr); }
 
     //
     // C++:  void calc(Mat I0, Mat I1, Mat& flow)
@@ -23,10 +18,8 @@ public class DenseOpticalFlow extends Algorithm {
     {
         
         calc_0(nativeObj, I0.nativeObj, I1.nativeObj, flow.nativeObj);
-        
-        return;
-    }
 
+    }
 
     //
     // C++:  void collectGarbage()
@@ -37,17 +30,14 @@ public class DenseOpticalFlow extends Algorithm {
     {
         
         collectGarbage_0(nativeObj);
-        
-        return;
-    }
 
+    }
 
     @Override
     protected void finalize() throws Throwable {
+        super.finalize();
         delete(nativeObj);
     }
-
-
 
     // C++:  void calc(Mat I0, Mat I1, Mat& flow)
     private static native void calc_0(long nativeObj, long I0_nativeObj, long I1_nativeObj, long flow_nativeObj);

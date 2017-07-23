@@ -12,7 +12,7 @@ public class MatOfByte extends Mat {
         super();
     }
 
-    protected MatOfByte(long addr) {
+    private MatOfByte(long addr) {
         super(addr);
         if( !empty() && checkVector(_channels, _depth) < 0 )
             throw new IllegalArgumentException("Incompatible Mat");

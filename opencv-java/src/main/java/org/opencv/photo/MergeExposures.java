@@ -1,7 +1,3 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.photo;
 
 import java.util.ArrayList;
@@ -14,8 +10,7 @@ import org.opencv.utils.Converters;
 //javadoc: MergeExposures
 public class MergeExposures extends Algorithm {
 
-    protected MergeExposures(long addr) { super(addr); }
-
+    MergeExposures(long addr) { super(addr); }
 
     //
     // C++:  void process(vector_Mat src, Mat& dst, Mat times, Mat response)
@@ -26,17 +21,14 @@ public class MergeExposures extends Algorithm {
     {
         Mat src_mat = Converters.vector_Mat_to_Mat(src);
         process_0(nativeObj, src_mat.nativeObj, dst.nativeObj, times.nativeObj, response.nativeObj);
-        
-        return;
-    }
 
+    }
 
     @Override
     protected void finalize() throws Throwable {
+        super.finalize();
         delete(nativeObj);
     }
-
-
 
     // C++:  void process(vector_Mat src, Mat& dst, Mat times, Mat response)
     private static native void process_0(long nativeObj, long src_mat_nativeObj, long dst_nativeObj, long times_nativeObj, long response_nativeObj);

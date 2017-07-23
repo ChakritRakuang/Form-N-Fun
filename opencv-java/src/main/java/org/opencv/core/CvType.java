@@ -3,7 +3,7 @@ package org.opencv.core;
 public final class CvType {
 
     // type depth constants
-    public static final int
+    private static final int
             CV_8U = 0, CV_8S = 1,
             CV_16U = 2, CV_16S = 3,
             CV_32S = 4,
@@ -23,7 +23,7 @@ public final class CvType {
 
     private static final int CV_CN_MAX = 512, CV_CN_SHIFT = 3, CV_DEPTH_MAX = (1 << CV_CN_SHIFT);
 
-    public static final int makeType(int depth, int channels) {
+    public static int makeType(int depth, int channels) {
         if (channels <= 0 || channels >= CV_CN_MAX) {
             throw new java.lang.UnsupportedOperationException(
                     "Channels count should be 1.." + (CV_CN_MAX - 1));
@@ -35,47 +35,47 @@ public final class CvType {
         return (depth & (CV_DEPTH_MAX - 1)) + ((channels - 1) << CV_CN_SHIFT);
     }
 
-    public static final int CV_8UC(int ch) {
+    private static int CV_8UC(int ch) {
         return makeType(CV_8U, ch);
     }
 
-    public static final int CV_8SC(int ch) {
+    private static int CV_8SC(int ch) {
         return makeType(CV_8S, ch);
     }
 
-    public static final int CV_16UC(int ch) {
+    private static int CV_16UC(int ch) {
         return makeType(CV_16U, ch);
     }
 
-    public static final int CV_16SC(int ch) {
+    private static int CV_16SC(int ch) {
         return makeType(CV_16S, ch);
     }
 
-    public static final int CV_32SC(int ch) {
+    private static int CV_32SC(int ch) {
         return makeType(CV_32S, ch);
     }
 
-    public static final int CV_32FC(int ch) {
+    private static int CV_32FC(int ch) {
         return makeType(CV_32F, ch);
     }
 
-    public static final int CV_64FC(int ch) {
+    public static int CV_64FC(int ch) {
         return makeType(CV_64F, ch);
     }
 
-    public static final int channels(int type) {
+    static int channels(int type) {
         return (type >> CV_CN_SHIFT) + 1;
     }
 
-    public static final int depth(int type) {
+    static int depth(int type) {
         return type & (CV_DEPTH_MAX - 1);
     }
 
-    public static final boolean isInteger(int type) {
+    public static boolean isInteger(int type) {
         return depth(type) < CV_32F;
     }
 
-    public static final int ELEM_SIZE(int type) {
+    public static int ELEM_SIZE(int type) {
         switch (depth(type)) {
         case CV_8U:
         case CV_8S:
@@ -94,7 +94,7 @@ public final class CvType {
         }
     }
 
-    public static final String typeToString(int type) {
+    static String typeToString(int type) {
         String s;
         switch (depth(type)) {
         case CV_8U:
@@ -131,6 +131,6 @@ public final class CvType {
             return s + "C" + ch;
         else
             return s + "C(" + ch + ")";
-    }
 
+    }
 }

@@ -1,7 +1,3 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.videoio;
 
 import java.lang.String;
@@ -14,7 +10,6 @@ public class VideoCapture {
     protected final long nativeObj;
     protected VideoCapture(long addr) { nativeObj = addr; }
 
-
     //
     // C++:   VideoCapture()
     //
@@ -24,10 +19,8 @@ public class VideoCapture {
     {
         
         nativeObj = VideoCapture_0();
-        
-        return;
-    }
 
+    }
 
     //
     // C++:   VideoCapture(String filename)
@@ -38,10 +31,8 @@ public class VideoCapture {
     {
         
         nativeObj = VideoCapture_1(filename);
-        
-        return;
-    }
 
+    }
 
     //
     // C++:   VideoCapture(int device)
@@ -52,10 +43,8 @@ public class VideoCapture {
     {
         
         nativeObj = VideoCapture_2(device);
-        
-        return;
-    }
 
+    }
 
     //
     // C++:  bool open(String filename)
@@ -64,12 +53,9 @@ public class VideoCapture {
     //javadoc: VideoCapture::open(filename)
     public  boolean open(String filename)
     {
-        
-        boolean retVal = open_0(nativeObj, filename);
-        
-        return retVal;
-    }
 
+        return open_0(nativeObj, filename);
+    }
 
     //
     // C++:  bool open(int device)
@@ -78,12 +64,9 @@ public class VideoCapture {
     //javadoc: VideoCapture::open(device)
     public  boolean open(int device)
     {
-        
-        boolean retVal = open_1(nativeObj, device);
-        
-        return retVal;
-    }
 
+        return open_1(nativeObj, device);
+    }
 
     //
     // C++:  bool isOpened()
@@ -92,12 +75,9 @@ public class VideoCapture {
     //javadoc: VideoCapture::isOpened()
     public  boolean isOpened()
     {
-        
-        boolean retVal = isOpened_0(nativeObj);
-        
-        return retVal;
-    }
 
+        return isOpened_0(nativeObj);
+    }
 
     //
     // C++:  void release()
@@ -108,10 +88,8 @@ public class VideoCapture {
     {
         
         release_0(nativeObj);
-        
-        return;
-    }
 
+    }
 
     //
     // C++:  bool grab()
@@ -120,12 +98,9 @@ public class VideoCapture {
     //javadoc: VideoCapture::grab()
     public  boolean grab()
     {
-        
-        boolean retVal = grab_0(nativeObj);
-        
-        return retVal;
-    }
 
+        return grab_0(nativeObj);
+    }
 
     //
     // C++:  bool read(Mat& image)
@@ -134,10 +109,8 @@ public class VideoCapture {
     //javadoc: VideoCapture::read(image)
     public  boolean read(Mat image)
     {
-        
-        boolean retVal = read_0(nativeObj, image.nativeObj);
-        
-        return retVal;
+
+        return read_0(nativeObj, image.nativeObj);
     }
 
 
@@ -148,21 +121,16 @@ public class VideoCapture {
     //javadoc: VideoCapture::retrieve(image, flag)
     public  boolean retrieve(Mat image, int flag)
     {
-        
-        boolean retVal = retrieve_0(nativeObj, image.nativeObj, flag);
-        
-        return retVal;
+
+        return retrieve_0(nativeObj, image.nativeObj, flag);
     }
 
     //javadoc: VideoCapture::retrieve(image)
     public  boolean retrieve(Mat image)
     {
-        
-        boolean retVal = retrieve_1(nativeObj, image.nativeObj);
-        
-        return retVal;
-    }
 
+        return retrieve_1(nativeObj, image.nativeObj);
+    }
 
     //
     // C++:  double get(int propId)
@@ -171,12 +139,9 @@ public class VideoCapture {
     //javadoc: VideoCapture::get(propId)
     public  double get(int propId)
     {
-        
-        double retVal = get_0(nativeObj, propId);
-        
-        return retVal;
-    }
 
+        return get_0(nativeObj, propId);
+    }
 
     //
     // C++:  bool set(int propId, double value)
@@ -185,19 +150,14 @@ public class VideoCapture {
     //javadoc: VideoCapture::set(propId, value)
     public  boolean set(int propId, double value)
     {
-        
-        boolean retVal = set_0(nativeObj, propId, value);
-        
-        return retVal;
-    }
 
+        return set_0(nativeObj, propId, value);
+    }
 
     @Override
     protected void finalize() throws Throwable {
         delete(nativeObj);
     }
-
-
 
     // C++:   VideoCapture()
     private static native long VideoCapture_0();

@@ -1,14 +1,8 @@
-
-//
-// This file is auto-generated. Please don't modify it!
-//
 package org.opencv.videoio;
-
-
 
 public class Videoio {
 
-    public static final int
+    private static final int
             CV_CAP_MSMF = 1400,
             CV_CAP_ANDROID = 1000,
             CV_CAP_ANDROID_BACK = CV_CAP_ANDROID+99,

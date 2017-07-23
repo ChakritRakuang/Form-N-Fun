@@ -13,7 +13,6 @@ public class Tonemap extends Algorithm {
 
     protected Tonemap(long addr) { super(addr); }
 
-
     //
     // C++:  void process(Mat src, Mat& dst)
     //

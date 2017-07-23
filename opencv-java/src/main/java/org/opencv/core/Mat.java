@@ -188,9 +188,7 @@ public class Mat {
     public int checkVector(int elemChannels)
     {
 
-        int retVal = n_checkVector(nativeObj, elemChannels);
-
-        return retVal;
+        return n_checkVector(nativeObj, elemChannels);
     }
 
     //
@@ -201,9 +199,7 @@ public class Mat {
     public Mat clone()
     {
 
-        Mat retVal = new Mat(n_clone(nativeObj));
-
-        return retVal;
+        return new Mat(n_clone(nativeObj));
     }
 
     //
@@ -214,9 +210,7 @@ public class Mat {
     public Mat col(int x)
     {
 
-        Mat retVal = new Mat(n_col(nativeObj, x));
-
-        return retVal;
+        return new Mat(n_col(nativeObj, x));
     }
 
     //
@@ -227,9 +221,7 @@ public class Mat {
     public Mat colRange(int startcol, int endcol)
     {
 
-        Mat retVal = new Mat(n_colRange(nativeObj, startcol, endcol));
-
-        return retVal;
+        return new Mat(n_colRange(nativeObj, startcol, endcol));
     }
 
     //

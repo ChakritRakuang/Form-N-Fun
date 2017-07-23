@@ -3,9 +3,8 @@ package org.opencv.core;
 import java.util.Arrays;
 import java.util.List;
 
-import org.opencv.core.DMatch;
-
 public class MatOfDMatch extends Mat {
+
     // 32FC4
     private static final int _depth = CvType.CV_32F;
     private static final int _channels = 4;
@@ -14,7 +13,7 @@ public class MatOfDMatch extends Mat {
         super();
     }
 
-    protected MatOfDMatch(long addr) {
+    private MatOfDMatch(long addr) {
         super(addr);
         if( !empty() && checkVector(_channels, _depth) < 0 )
             throw new IllegalArgumentException("Incompatible Mat: " + toString());
@@ -42,7 +41,6 @@ public class MatOfDMatch extends Mat {
             super.create(elemNumber, 1, CvType.makeType(_depth, _channels));
     }
 
-
     public void fromArray(DMatch...a) {
         if(a==null || a.length==0)
             return;
@@ -51,7 +49,7 @@ public class MatOfDMatch extends Mat {
         float buff[] = new float[num * _channels];
         for(int i=0; i<num; i++) {
             DMatch m = a[i];
-            buff[_channels*i+0] = m.queryIdx;
+            buff[_channels * i] = m.queryIdx;
             buff[_channels*i+1] = m.trainIdx;
             buff[_channels*i+2] = m.imgIdx;
             buff[_channels*i+3] = m.distance;
@@ -67,7 +65,7 @@ public class MatOfDMatch extends Mat {
         float buff[] = new float[num * _channels];
         get(0, 0, buff); //TODO: check ret val!
         for(int i=0; i<num; i++)
-            a[i] = new DMatch((int) buff[_channels*i+0], (int) buff[_channels*i+1], (int) buff[_channels*i+2], buff[_channels*i+3]);
+            a[i] = new DMatch((int) buff[_channels * i], (int) buff[_channels*i+1], (int) buff[_channels*i+2], buff[_channels*i+3]);
         return a;
     }
 
