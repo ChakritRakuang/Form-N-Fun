@@ -1,5 +1,6 @@
 package org.opencv.android;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,15 +13,15 @@ import android.util.Log;
  */
 public abstract class BaseLoaderCallback implements LoaderCallbackInterface {
 
-    public BaseLoaderCallback(Context AppContext) {
+    protected BaseLoaderCallback(Context AppContext) {
         mAppContext = AppContext;
     }
 
+    @SuppressLint("LongLogTag")
     public void onManagerConnected(int status)
     {
         switch (status)
         {
-            /** OpenCV initialization was successful. **/
             case LoaderCallbackInterface.SUCCESS:
             {
                 /** Application must override this method to handle successful library initialization. **/
@@ -131,11 +132,11 @@ public abstract class BaseLoaderCallback implements LoaderCallbackInterface {
         }
     }
 
-    void finish()
+    private void finish()
     {
         ((Activity) mAppContext).finish();
     }
 
-    protected Context mAppContext;
+    private Context mAppContext;
     private final static String TAG = "OpenCVLoader/BaseLoaderCallback";
 }

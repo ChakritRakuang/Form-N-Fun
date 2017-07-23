@@ -1,13 +1,5 @@
 package org.opencv.android;
 
-import java.util.List;
-
-import org.opencv.R;
-import org.opencv.android.Utils;
-import org.opencv.core.Mat;
-import org.opencv.core.Size;
-import org.opencv.videoio.Videoio;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -20,6 +12,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import org.opencv.R;
+import org.opencv.core.Mat;
+import org.opencv.core.Size;
+
+import java.util.List;
 
 /**
  * This is a basic class, implementing the interaction with Camera and OpenCV library.
@@ -39,7 +37,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
     private Bitmap mCacheBitmap;
     private CvCameraViewListener2 mListener;
     private boolean mSurfaceExist;
-    private Object mSyncObject = new Object();
+    private final Object mSyncObject = new Object();
 
     protected int mFrameWidth;
     protected int mFrameHeight;
@@ -166,7 +164,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
             return result;
         }
 
-        public void setFrameFormat(int format) {
+        void setFrameFormat(int format) {
             mPreviewFormat = format;
         }
 
@@ -429,7 +427,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
 
                 if (mFpsMeter != null) {
                     mFpsMeter.measure();
-                    mFpsMeter.draw(canvas, 20, 30);
+                    mFpsMeter.draw(canvas);
                 }
                 getHolder().unlockCanvasAndPost(canvas);
             }

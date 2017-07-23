@@ -1,11 +1,6 @@
 package org.opencv.android;
 
-import java.io.File;
-import java.util.StringTokenizer;
-
-import org.opencv.core.Core;
-import org.opencv.engine.OpenCVEngineInterface;
-
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -15,10 +10,16 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 
+import org.opencv.core.Core;
+import org.opencv.engine.OpenCVEngineInterface;
+
+import java.io.File;
+import java.util.StringTokenizer;
+
 class AsyncServiceHelper
 {
-    public static boolean initOpenCV(String Version, final Context AppContext,
-            final LoaderCallbackInterface Callback)
+    static boolean initOpenCV(String Version, final Context AppContext,
+                              final LoaderCallbackInterface Callback)
     {
         AsyncServiceHelper helper = new AsyncServiceHelper(Version, AppContext, Callback);
         Intent intent = new Intent("org.opencv.engine.BIND");
@@ -35,23 +36,23 @@ class AsyncServiceHelper
         }
     }
 
-    protected AsyncServiceHelper(String Version, Context AppContext, LoaderCallbackInterface Callback)
+    private AsyncServiceHelper(String Version, Context AppContext, LoaderCallbackInterface Callback)
     {
         mOpenCVersion = Version;
         mUserAppCallback = Callback;
         mAppContext = AppContext;
     }
 
-    protected static final String TAG = "OpenCVManager/Helper";
-    protected static final int MINIMUM_ENGINE_VERSION = 2;
-    protected OpenCVEngineInterface mEngineService;
-    protected LoaderCallbackInterface mUserAppCallback;
-    protected String mOpenCVersion;
-    protected Context mAppContext;
-    protected static boolean mServiceInstallationProgress = false;
-    protected static boolean mLibraryInstallationProgress = false;
+    private static final String TAG = "OpenCVManager/Helper";
+    private static final int MINIMUM_ENGINE_VERSION = 2;
+    private OpenCVEngineInterface mEngineService;
+    private LoaderCallbackInterface mUserAppCallback;
+    private String mOpenCVersion;
+    private Context mAppContext;
+    private static boolean mServiceInstallationProgress = false;
+    private static boolean mLibraryInstallationProgress = false;
 
-    protected static boolean InstallServiceQuiet(Context context)
+    private static boolean InstallServiceQuiet(Context context)
     {
         boolean result = true;
         try
@@ -68,7 +69,7 @@ class AsyncServiceHelper
         return result;
     }
 
-    protected static void InstallService(final Context AppContext, final LoaderCallbackInterface Callback)
+    private static void InstallService(final Context AppContext, final LoaderCallbackInterface Callback)
     {
         if (!mServiceInstallationProgress)
         {
@@ -151,9 +152,9 @@ class AsyncServiceHelper
     /**
      *  URL of OpenCV Manager page on Google Play Market.
      */
-    protected static final String OPEN_CV_SERVICE_URL = "market://details?id=org.opencv.engine";
+    private static final String OPEN_CV_SERVICE_URL = "market://details?id=org.opencv.engine";
 
-    protected ServiceConnection mServiceConnection = new ServiceConnection()
+    private ServiceConnection mServiceConnection = new ServiceConnection()
     {
         public void onServiceConnected(ComponentName className, IBinder service)
         {
@@ -211,7 +212,7 @@ class AsyncServiceHelper
                                             mUserAppCallback.onManagerConnected(LoaderCallbackInterface.MARKET_ERROR);
                                         }
                                     } catch (RemoteException e) {
-                                        e.printStackTrace();;
+                                        e.printStackTrace();
                                         Log.d(TAG, "Init finished with status " + LoaderCallbackInterface.INIT_FAILED);
                                         Log.d(TAG, "Unbind from service");
                                         mAppContext.unbindService(mServiceConnection);
@@ -287,7 +288,6 @@ class AsyncServiceHelper
 
                             mUserAppCallback.onPackageInstall(InstallCallbackInterface.INSTALLATION_PROGRESS, WaitQuery);
                         }
-                        return;
                     }
                     else
                     {
@@ -337,6 +337,7 @@ class AsyncServiceHelper
         }
     };
 
+    @SuppressLint("UnsafeDynamicallyLoadedCode")
     private boolean loadLibrary(String AbsPath)
     {
         boolean result = true;
@@ -351,7 +352,7 @@ class AsyncServiceHelper
         {
             Log.d(TAG, "Cannot load library \"" + AbsPath + "\"");
             e.printStackTrace();
-            result &= false;
+            result = false;
         }
 
         return result;
@@ -377,7 +378,7 @@ class AsyncServiceHelper
             {
                 // If the dependencies list is not defined or empty.
                 String AbsLibraryPath = Path + File.separator + "libopencv_java3.so";
-                result &= loadLibrary(AbsLibraryPath);
+                result = loadLibrary(AbsLibraryPath);
             }
 
             return result;

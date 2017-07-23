@@ -20,7 +20,7 @@ public class Utils {
         return exportResource(context, resourceId, "OpenCV_data");
     }
 
-    public static String exportResource(Context context, int resourceId, String dirname) {
+    private static String exportResource(Context context, int resourceId, String dirname) {
         String fullname = context.getResources().getString(resourceId);
         String resName = fullname.substring(fullname.lastIndexOf("/") + 1);
         try {
@@ -128,10 +128,9 @@ public class Utils {
      * @param mat is a valid input Mat object of the types 'CV_8UC1', 'CV_8UC3' or 'CV_8UC4'.
      * @param bmp is a valid Bitmap object of the same size as the Mat and of type 'ARGB_8888' or 'RGB_565'.
      */
-    public static void matToBitmap(Mat mat, Bitmap bmp) {
+    static void matToBitmap(Mat mat, Bitmap bmp) {
         matToBitmap(mat, bmp, false);
     }
-
 
     private static native void nBitmapToMat2(Bitmap b, long m_addr, boolean unPremultiplyAlpha);
 

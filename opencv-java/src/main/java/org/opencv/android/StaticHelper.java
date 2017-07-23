@@ -7,7 +7,7 @@ import android.util.Log;
 
 class StaticHelper {
 
-    public static boolean initOpenCV(boolean InitCuda)
+    static boolean initOpenCV(boolean InitCuda)
     {
         boolean result;
         String libs = "";
@@ -68,7 +68,7 @@ class StaticHelper {
         {
             Log.d(TAG, "Cannot load library \"" + Name + "\"");
             e.printStackTrace();
-            result &= false;
+            result = false;
         }
 
         return result;
@@ -92,7 +92,7 @@ class StaticHelper {
         else
         {
             // If dependencies list is not defined or empty.
-            result &= loadLibrary("opencv_java3");
+            result = loadLibrary("opencv_java3");
         }
 
         return result;

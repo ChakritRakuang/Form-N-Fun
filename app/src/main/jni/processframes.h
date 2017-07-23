@@ -14,6 +14,4 @@ extern "C"
 
 }
 
-
-
 #endif //MYAPPLICATION_PROCESSFRAMES_H

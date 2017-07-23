@@ -1,15 +1,15 @@
 package org.opencv.android;
 
-import java.text.DecimalFormat;
-
-import org.opencv.core.Core;
-
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
-public class FpsMeter {
+import org.opencv.core.Core;
+
+import java.text.DecimalFormat;
+
+class FpsMeter {
     private static final String TAG               = "FpsMeter";
     private static final int    STEP              = 20;
     private static final DecimalFormat FPS_FORMAT = new DecimalFormat("0.00");
@@ -18,12 +18,12 @@ public class FpsMeter {
     private double              mFrequency;
     private long                mprevFrameTime;
     private String              mStrfps;
-    Paint                       mPaint;
-    boolean                     mIsInitialized = false;
-    int                         mWidth = 0;
-    int                         mHeight = 0;
+    private Paint                       mPaint;
+    private boolean                     mIsInitialized = false;
+    private int                         mWidth = 0;
+    private int                         mHeight = 0;
 
-    public void init() {
+    private void init() {
         mFramesCouner = 0;
         mFrequency = Core.getTickFrequency();
         mprevFrameTime = Core.getTickCount();
@@ -34,7 +34,7 @@ public class FpsMeter {
         mPaint.setTextSize(20);
     }
 
-    public void measure() {
+    void measure() {
         if (!mIsInitialized) {
             init();
             mIsInitialized = true;
@@ -45,7 +45,7 @@ public class FpsMeter {
                 double fps = STEP * mFrequency / (time - mprevFrameTime);
                 mprevFrameTime = time;
                 if (mWidth != 0 && mHeight != 0)
-                    mStrfps = FPS_FORMAT.format(fps) + " FPS@" + Integer.valueOf(mWidth) + "x" + Integer.valueOf(mHeight);
+                    mStrfps = FPS_FORMAT.format(fps) + " FPS@" + mWidth + "x" + mHeight;
                 else
                     mStrfps = FPS_FORMAT.format(fps) + " FPS";
                 Log.i(TAG, mStrfps);
@@ -53,14 +53,14 @@ public class FpsMeter {
         }
     }
 
-    public void setResolution(int width, int height) {
+    void setResolution(int width, int height) {
         mWidth = width;
         mHeight = height;
     }
 
-    public void draw(Canvas canvas, float offsetx, float offsety) {
+    void draw(Canvas canvas) {
         Log.d(TAG, mStrfps);
-        canvas.drawText(mStrfps, offsetx, offsety, mPaint);
+        canvas.drawText(mStrfps, (float) 20, (float) 30, mPaint);
     }
 
 }

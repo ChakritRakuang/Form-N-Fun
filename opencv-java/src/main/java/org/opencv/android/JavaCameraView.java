@@ -1,7 +1,6 @@
 package org.opencv.android;
 
-import java.util.List;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -16,6 +15,8 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+
+import java.util.List;
 
 /**
  * This class is an implementation of the Bridge View between OpenCV and Java Camera.
@@ -39,7 +40,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
     protected Camera mCamera;
     protected JavaCameraFrame[] mCameraFrame;
-    private SurfaceTexture mSurfaceTexture;
 
     public static class JavaCameraSizeAccessor implements ListItemAccessor {
 
@@ -64,6 +64,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         super(context, attrs);
     }
 
+    @SuppressLint("InlinedApi")
     protected boolean initializeCamera(int width, int height) {
         Log.d(TAG, "Initialize java camera");
         boolean result = true;
@@ -82,7 +83,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                 if(mCamera == null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                     boolean connected = false;
                     for (int camIdx = 0; camIdx < Camera.getNumberOfCameras(); ++camIdx) {
-                        Log.d(TAG, "Trying to open camera with new open(" + Integer.valueOf(camIdx) + ")");
+                        Log.d(TAG, "Trying to open camera with new open(" + camIdx + ")");
                         try {
                             mCamera = Camera.open(camIdx);
                             connected = true;
@@ -121,7 +122,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     } else if (localCameraIndex == CAMERA_ID_FRONT) {
                         Log.e(TAG, "Front camera not found!");
                     } else {
-                        Log.d(TAG, "Trying to open camera with new open(" + Integer.valueOf(localCameraIndex) + ")");
+                        Log.d(TAG, "Trying to open camera with new open(" + localCameraIndex + ")");
                         try {
                             mCamera = Camera.open(localCameraIndex);
                         } catch (RuntimeException e) {
@@ -145,7 +146,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     Size frameSize = calculateCameraFrameSize(sizes, new JavaCameraSizeAccessor(), width, height);
 
                     params.setPreviewFormat(ImageFormat.NV21);
-                    Log.d(TAG, "Set preview size to " + Integer.valueOf((int)frameSize.width) + "x" + Integer.valueOf((int)frameSize.height));
+                    Log.d(TAG, "Set preview size to " + (int) frameSize.width + "x" + (int) frameSize.height);
                     params.setPreviewSize((int)frameSize.width, (int)frameSize.height);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && !android.os.Build.MODEL.equals("GT-I9100"))
@@ -190,7 +191,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     mCameraFrame[1] = new JavaCameraFrame(mFrameChain[1], mFrameWidth, mFrameHeight);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                        mSurfaceTexture = new SurfaceTexture(MAGIC_TEXTURE_ID);
+                        SurfaceTexture mSurfaceTexture = new SurfaceTexture(MAGIC_TEXTURE_ID);
                         mCamera.setPreviewTexture(mSurfaceTexture);
                     } else
                        mCamera.setPreviewDisplay(null);
@@ -305,7 +306,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
             return mRgba;
         }
 
-        public JavaCameraFrame(Mat Yuv420sp, int width, int height) {
+        JavaCameraFrame(Mat Yuv420sp, int width, int height) {
             super();
             mWidth = width;
             mHeight = height;
@@ -321,7 +322,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         private Mat mRgba;
         private int mWidth;
         private int mHeight;
-    };
+    }
 
     private class CameraWorker implements Runnable {
 

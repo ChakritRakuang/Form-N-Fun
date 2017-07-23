@@ -1,7 +1,3 @@
-//
-// Created by ROHIT on 22-05-2017.
-//
-
 #include "findballsandmazes.h"
 #include <vector>
 #include <opencv2/core/core.hpp>
