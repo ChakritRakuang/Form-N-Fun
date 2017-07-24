@@ -13,7 +13,7 @@
 
 3) <b>บังคับลูกบอล:</b> สามารถแก้ไยสีของลูกบอลและขนาดได้ที่นี้ [here](https://github.com/ChakritRakuang/Form-N-Fun/tree/master/app/src/main/java/com/formfun/graphics/Ball.java#L69).
 
-4) <b>สีของบอล:</b> สีของลูกบอลแก้ไขได้ที่นี้[here](https://github.com/ChakritRakuang/Form-N-Fun/tree/master/app/src/main/java/com/formfungraphics/Ball.java#L57).
+4) <b>สีของบอล:</b> สีของลูกบอลแก้ไขได้ที่นี้[here](https://github.com/ChakritRakuang/Form-N-Fun/tree/master/app/src/main/java/com/formfung/raphics/Ball.java#L57).
 
 <b>คำแนะนำ</b>
 
