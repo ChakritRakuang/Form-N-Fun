@@ -42,9 +42,9 @@
 
 <b>APP_ABI := arm64-v8a armeabi armeabi-v7a mips mips64 x86 x86_64</b>
 
-ถ้าคุณต้องการสร้างแอปเฉพาะอุปกรณ์จากนั้นให้แก้ไข <b>particular device</b> then modify <b>APP_ABI to device ABIs</b> ใน Application.mk in jni folder.
+ถ้าคุณต้องการสร้างแอปเฉพาะอุปกรณ์จากนั้นให้แก้ไข <b>particular device</b> แก้ไขที่ <b>APP_ABI to device ABIs</b> ใน Application.mk in jni folder.
 
-For example, to build App only for <b>Nexus 5x</b> then modify <b>APP_ABI</b> to <b>APP_ABI:=arm64-v8a</b> in Application.mk (NEXUS 5X has ARMv8 based CPU supports AArch64).
+ตัวอย่างเช่นต้องการสร้างแอปเฉพาะบน<b>samsung a9 pro/b> แก้ไขไฟล์ได้ที่<b>APP_ABI</b> to <b>APP_ABI:=arm64-v8a</b> ใน Application.mk (samsung a9 pro has ARMv8 based CPU supports AArch64).
 
 <b>APP_ABI := arm64-v8a</b>
 
